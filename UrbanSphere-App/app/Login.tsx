@@ -40,9 +40,6 @@ const LoginScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={[styles.circle, styles.topLeftCircle]} />
-      <View style={[styles.circle, styles.bottomRightCircle]} />
-
       <Text style={styles.title}>
         Sign <Text style={styles.titleHighlight}>In</Text>
       </Text>
@@ -51,15 +48,15 @@ const LoginScreen = () => {
         <Ionicons
           name="call-outline"
           size={20}
-          color="#000"
+          color="#888"
           style={styles.icon}
         />
         <TextInput
           style={styles.input}
           placeholder="+91"
-          keyboardType="phone-pad"
+          placeholderTextColor="#666"
           onChangeText={setPhoneNumber}
-          value={phoneNumber}
+          keyboardType="phone-pad"
         />
       </View>
 
@@ -67,12 +64,13 @@ const LoginScreen = () => {
         <Ionicons
           name="lock-closed-outline"
           size={20}
-          color="#000"
+          color="#888"
           style={styles.icon}
         />
         <TextInput
           style={styles.input}
           placeholder="Your Password"
+          placeholderTextColor="#666"
           secureTextEntry={!showPassword}
           onChangeText={setPassword}
           value={password}
@@ -81,7 +79,7 @@ const LoginScreen = () => {
           <Ionicons
             name={showPassword ? "eye-outline" : "eye-off-outline"}
             size={20}
-            color="#000"
+            color="#888"
           />
         </TouchableOpacity>
       </View>
@@ -90,7 +88,7 @@ const LoginScreen = () => {
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate("ForgotScreen")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
         <Text style={styles.forgotText}>
           Don’t remember your password?{" "}
           <Text style={styles.forgotLink}>Forget Password</Text>
@@ -105,28 +103,29 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#1D1B20",
     justifyContent: "center",
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 42,
-    fontWeight: "bold",
+    fontWeight: "700",
+    color: "#fff",
     textAlign: "center",
-    color: "#333",
     marginBottom: 30,
   },
   titleHighlight: {
-    color: "#A6F10F",
+    color: "#8A2BE2",
   },
   inputContainer: {
+    color: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f1f1f1",
-    borderRadius: 10,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
+    backgroundColor: "#333",
+    borderRadius: 12,
     marginBottom: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
   },
   icon: {
     marginRight: 8,
@@ -134,44 +133,33 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 14,
-    color: "#333",
+    color: "#fff",
   },
   loginButton: {
-    backgroundColor: "#A6F10F",
-    paddingVertical: 14,
-    borderRadius: 8,
+    width: "100%",
+    alignSelf: "center",
+    backgroundColor: "#8A2BE2",
+    borderRadius: 12,
+    paddingVertical: 12,
     alignItems: "center",
-    marginTop: 20,
+    marginBottom: 20,
   },
   loginButtonText: {
-    color: "#000",
     fontSize: 16,
-    fontWeight: "500",
+    color: "#fff",
   },
   forgotText: {
     textAlign: "center",
-    color: "#666",
+    color: "#999",
     marginTop: 20,
   },
   forgotLink: {
-    color: "#000",
+    color: "#8A2BE2",
     fontWeight: "500",
   },
   circle: {
     position: "absolute",
     borderRadius: 100,
-    backgroundColor: "#A6F10F",
-  },
-  topLeftCircle: {
-    width: 160,
-    height: 160,
-    top: -50,
-    left: -50,
-  },
-  bottomRightCircle: {
-    width: 200,
-    height: 200,
-    bottom: -60,
-    right: -60,
+    backgroundColor: "#8A2BE2",
   },
 });
