@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api
+
+# Host
+Host: https://aarohan.itshivam.me
+
+# Sitemaps
+Sitemap: https://aarohan.itshivam.me/sitemap.xml
+Sitemap: https://aarohan.itshivam.me/server-sitemap.xml
