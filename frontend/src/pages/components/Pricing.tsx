@@ -38,7 +38,7 @@ const Pricing = () => {
               </div>
               <p className="mt-4 text-base leading-6 text-gray-600">UrbanSphere Premium Plan for Real Estate Insights and Enhanced Analytics</p>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="line-through text-2xl font-sans text-gray-500/70">$59</span><span className="text-5xl font-bold tracking-tight text-gray-900">$39</span>
+                <span className="line-through text-2xl font-sans text-gray-500/70">$19</span><span className="text-5xl font-bold tracking-tight text-gray-900">$9</span>
               </p>
               <Link href={'/dashboard/compression'} aria-describedby="tier-extended" className="bg-blue-600 text-white shadow-sm hover:bg-blue-500 mt-6 block rounded-md py-2 px-3 text-center text-base font-medium leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Buy now</Link>
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
