@@ -33,10 +33,8 @@ export default function Splash() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.topLeftCircle} />
-      <View style={styles.topRightCircle} />
       <Text style={styles.title}>
-        Bus<Text style={styles.highlight}>Scout</Text>
+        Urban<Text style={styles.highlight}>Sphere</Text>
       </Text>
       <View style={styles.loaderContainer}>
         <Animated.View
@@ -64,46 +62,29 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff",
-  },
-  topLeftCircle: {
-    position: "absolute",
-    top: -40,
-    left: -56,
-    width: 140,
-    height: 140,
-    backgroundColor: "#C8C8C8",
-    borderRadius: 70,
-  },
-  topRightCircle: {
-    position: "absolute",
-    top: -60,
-    right: -70,
-    width: 220,
-    height: 220,
-    backgroundColor: "#ECECEC",
-    borderRadius: 110,
+    backgroundColor: "#1D1B20",
   },
   title: {
-    fontSize: 54,
+    fontSize: 48,
     fontWeight: "700",
-    color: "#333333",
-    marginBottom: 40,
+    color: "#dddddd",
+    marginBottom: 20,
   },
   highlight: {
-    color: "#ACACAC",
+    color: "#9041FF",
   },
   loaderContainer: {
     width: "40%",
     height: 8,
-    backgroundColor: "#ECECEC",
+    backgroundColor: "#333333",
     borderRadius: 4,
     overflow: "hidden",
     marginVertical: 20,
+    marginBottom: 60,
   },
   loaderBar: {
     height: "100%",
-    backgroundColor: "#C1F21D",
+    backgroundColor: "#9041FF",
     position: "absolute",
     left: 0,
     top: 0,
