@@ -1,99 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import { View, StyleSheet, SafeAreaView, Text, ScrollView } from "react-native";
-// import { Picker } from "@react-native-picker/picker";
-// import Svg, { Circle, Text as SvgText } from 'react-native-svg';
-
-// const CityData: Record<string, { location: string; "PM2.5": number }[]> = require('../../data/almighty.json');
-
-// const Index: React.FC = () => {
-//   const [selectedCity, setSelectedCity] = useState<string>("Delhi");
-//   const [localities, setLocalities] = useState<{ location: string, "PM2.5": number }[]>([]);
-
-//   useEffect(() => {
-//     if (selectedCity) {
-//       setLocalities(CityData[selectedCity]);
-//     }
-//   }, [selectedCity]);
-
-//   const getColor = (aqi: number): string => {
-//     if (aqi <= 50) return "green";
-//     else if (aqi <= 100) return "yellow";
-//     else if (aqi <= 150) return "orange";
-//     return "red";
-//   };
-
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <Text style={styles.title}>Select City</Text>
-//       <Picker
-//         selectedValue={selectedCity}
-//         style={styles.picker}
-//         onValueChange={(itemValue) => setSelectedCity(itemValue as string)}
-//       >
-//         {Object.keys(CityData).map((city) => (
-//           <Picker.Item key={city} label={city} value={city} />
-//         ))}
-//       </Picker>
-
-//       <Text style={styles.subtitle}>Locality Data for {selectedCity}</Text>
-//       <ScrollView horizontal style={styles.scrollView}>
-//         <Svg height="300" width="800">
-//           {localities.map((loc, index) => (
-//             <Circle
-//               key={index}
-//               cx={(index % 5) * 150 + 50}
-//               cy={Math.floor(index / 5) * 100 + 50}
-//               r={20}
-//               fill={getColor(loc["PM2.5"])}
-//             />
-//           ))}
-//           {localities.map((loc, index) => (
-//             <SvgText
-//               key={index + "_text"}
-//               x={(index % 5) * 150 + 50}
-//               y={Math.floor(index / 5) * 100 + 90}
-//               fontSize="12"
-//               fill="black"
-//               textAnchor="middle"
-//             >
-//               {loc.location}
-//             </SvgText>
-//           ))}
-//         </Svg>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#ffffff",
-//     padding: 10,
-//   },
-//   title: {
-//     fontSize: 20,
-//     fontWeight: "bold",
-//     textAlign: "center",
-//     marginVertical: 10,
-//   },
-//   picker: {
-//     height: 50,
-//     width: 200,
-//     alignSelf: "center",
-//   },
-//   subtitle: {
-//     fontSize: 16,
-//     textAlign: "center",
-//     marginVertical: 20,
-//   },
-//   scrollView: {
-//     marginVertical: 20,
-//   },
-// });
-
-// export default Index;
-
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -115,7 +19,7 @@ const Index: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<string | null>("Kanpur");
   const [cityModalVisible, setCityModalVisible] = useState(false);
   const [localities, setLocalities] = useState<
-    { id: string; name: string; image: string }[]
+    { id: string; name: string; image: string; score: number }[]
   >([]);
 
   useEffect(() => {
@@ -124,15 +28,27 @@ const Index: React.FC = () => {
       (locality: { location: string; "PM2.5": number }, index: number) => ({
         id: String(index + 1),
         name: locality.location,
-        image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+        image: "https://via.placeholder.com/80",
       })
     );
-    setLocalities(localityData); // Update the localities state
+    setLocalities(localityData);
   }, []);
+
+  useEffect(() => {
+    const cityLocalities = CityData[selectedCity] || [];
+    const localityData = cityLocalities.map(
+      (locality: { location: string; "PM2.5": number }, index: number) => ({
+        id: String(index + 1),
+        name: locality.location,
+        image: "https://via.placeholder.com/80",
+        score: parseFloat((Math.random() * 5).toFixed(2)),
+      })
+    );
+    setLocalities(localityData);
+  }, [selectedCity]);
 
   const navigation = useNavigation();
 
-  // List of Indian cities
   const cities = [
     "Delhi",
     "Mumbai",
@@ -147,13 +63,6 @@ const Index: React.FC = () => {
     "Lucknow",
   ];
 
-  // const localities = [
-  //   { id: "1", name: "Downtown", image: "https://via.placeholder.com/80" },
-  //   { id: "2", name: "Uptown", image: "https://via.placeholder.com/80" },
-  //   { id: "3", name: "Suburb", image: "https://via.placeholder.com/80" },
-  //   { id: "4", name: "Midtown", image: "https://via.placeholder.com/80" },
-  // ];
-
   const featured = [
     {
       id: "1",
@@ -164,30 +73,28 @@ const Index: React.FC = () => {
     { id: "3", name: "Trending", image: "https://via.placeholder.com/120" },
   ];
 
-  const handleCitySelection = () => {
-    setCityModalVisible(true);
-  };
+  const handleCitySelection = () => setCityModalVisible(true);
 
   const handleCityPress = (city: string) => {
     setSelectedCity(city);
     setCityModalVisible(false);
-    //set locality array here on based on input city
     const cityLocalities = CityData[city] || [];
     const localityData = cityLocalities.map(
       (locality: { location: string; "PM2.5": number }, index: number) => ({
         id: String(index + 1),
         name: locality.location,
-        image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+        image: "https://via.placeholder.com/80",
+        score: parseFloat((Math.random() * 5).toFixed(2)),
       })
     );
-    setLocalities(localityData); // Update the localities state
-    console.log;
+    setLocalities(localityData);
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>Welcome,</Text>
       <Text style={styles.highlight}>Sanskar</Text>
+
       <TouchableOpacity
         onPress={handleCitySelection}
         style={styles.citySelector}
@@ -225,43 +132,71 @@ const Index: React.FC = () => {
         </View>
       </Modal>
 
-      <Text style={styles.sectionTitle}>Localities</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.localityScroll}
-      >
-        {localities.map((locality) => (
-          <TouchableOpacity
-            key={locality.id}
-            style={styles.localityItem}
-            onPress={() =>
-              navigation.navigate("CityStats", { localityName: locality.name })
-            }
-          >
-            <Image
-              source={{ uri: locality.image }}
-              style={styles.localityImage}
-            />
-            <Text style={styles.localityName}>{locality.name}</Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Localities</Text>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.localityScroll}
+        >
+          {localities.map((locality) => (
+            <TouchableOpacity
+              key={locality.id}
+              style={styles.localityItem}
+              onPress={() =>
+                navigation.navigate("CityStats", {
+                  localityName: locality.name,
+                })
+              }
+            >
+              <Image
+                source={{ uri: locality.image }}
+                style={styles.localityImage}
+              />
+              <Text style={styles.localityName}>{locality.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
 
-      <Text style={styles.sectionTitle}>Featured</Text>
-      <FlatList
-        data={featured}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.featuredItem}>
-            <Image source={{ uri: item.image }} style={styles.featuredImage} />
-            <Text style={styles.featuredName}>{item.name}</Text>
-          </View>
-        )}
-      />
-    </SafeAreaView>
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Featured</Text>
+        <FlatList
+          data={featured}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.featuredItem}>
+              <Image
+                source={{ uri: item.image }}
+                style={styles.featuredImage}
+              />
+              <Text style={styles.featuredName}>{item.name}</Text>
+            </View>
+          )}
+        />
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Leaderboard</Text>
+        <ScrollView style={styles.leaderboardContainer}>
+          {localities
+            .sort((a, b) => b.score - a.score)
+            .map((locality) => (
+              <View key={locality.id} style={styles.leaderboardItem}>
+                <Text style={styles.localityName}>{locality.name}</Text>
+                <View style={styles.barContainer}>
+                  <View
+                    style={[styles.bar, { width: `${locality.score * 20}%` }]}
+                  />
+                  <Text style={styles.scoreText}>{locality.score}</Text>
+                </View>
+              </View>
+            ))}
+        </ScrollView>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -337,6 +272,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
+  section: {
+    marginBottom: 30,
+  },
   sectionTitle: {
     color: "#888",
     fontSize: 18,
@@ -353,14 +291,12 @@ const styles = StyleSheet.create({
   localityImage: {
     width: 80,
     height: 80,
-    borderRadius: 40,
-    backgroundColor: "#f0f0f0",
+    borderRadius: 80,
+    marginBottom: 5,
   },
   localityName: {
-    marginTop: 5,
-    fontSize: 14,
-    textAlign: "center",
     color: "#ddd",
+    fontSize: 14,
   },
   featuredItem: {
     alignItems: "center",
@@ -370,13 +306,38 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 10,
-    backgroundColor: "#f0f0f0",
   },
   featuredName: {
-    marginTop: 5,
-    fontSize: 14,
-    textAlign: "center",
     color: "#ddd",
+    fontSize: 14,
+    marginTop: 5,
+  },
+  leaderboardContainer: {
+    backgroundColor: "#333",
+    padding: 10,
+    borderRadius: 12,
+  },
+  leaderboardItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  barContainer: {
+    flex: 1,
+    backgroundColor: "#ddd",
+    borderRadius: 8,
+    height: 10,
+    overflow: "hidden",
+    marginLeft: 10,
+  },
+  bar: {
+    height: 10,
+    backgroundColor: "#8A2BE2",
+  },
+  scoreText: {
+    color: "#ddd",
+    marginLeft: 5,
+    fontSize: 12,
   },
 });
 
