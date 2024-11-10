@@ -45,14 +45,18 @@ const LoginScreen = () => {
   };
 
   return (
-      <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>
-          Sign <Text style={styles.titleHighlight}>In</Text>
-        </Text>
-        <Button onPress={handleAuth0Login} title="Log in" />
-        </SafeAreaView>
-    )
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>
+        Sign <Text style={styles.titleHighlight}>In</Text>
+      </Text>
 
+      <TouchableOpacity style={styles.loginButton} onPress={handleAuth0Login}>
+        <Text style={styles.loginButtonText}>Login</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.auth0Label}>Secured with Auth0</Text>
+    </SafeAreaView>
+  );
 
   // return (
   //   <SafeAreaView style={styles.container}>
@@ -124,35 +128,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 42,
+    fontSize: 48,
     fontWeight: "700",
     color: "#fff",
     textAlign: "center",
-    marginBottom: 30,
+    marginBottom: 50,
   },
   titleHighlight: {
     color: "#8A2BE2",
   },
-  inputContainer: {
-    color: "#fff",
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#333",
-    borderRadius: 12,
-    marginBottom: 20,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-  },
-  icon: {
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    fontSize: 14,
-    color: "#fff",
-  },
   loginButton: {
-    width: "100%",
+    width: "70%",
     alignSelf: "center",
     backgroundColor: "#8A2BE2",
     borderRadius: 12,
@@ -161,16 +147,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   loginButtonText: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#fff",
-  },
-  forgotText: {
     textAlign: "center",
-    color: "#999",
-    marginTop: 20,
   },
-  forgotLink: {
-    color: "#8A2BE2",
-    fontWeight: "500",
+  auth0Label: {
+    bottom: 0,
+    textAlign: "center",
+    color: "#fff",
+    fontSize: 14,
+    opacity: 0.7,
   },
 });

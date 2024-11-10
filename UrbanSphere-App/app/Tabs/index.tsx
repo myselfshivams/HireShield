@@ -94,7 +94,8 @@
 
 // export default Index;
 
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -105,18 +106,48 @@ import {
   Alert,
   FlatList,
   Image,
+  Modal,
+  Pressable,
 } from "react-native";
 
-const Index: React.FC = () => {
-  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+import CityData from "../../data/almighty.json";
 
-  // Sample data for locality and featured sections
-  const localities = [
-    { id: "1", name: "Downtown", image: "https://via.placeholder.com/80" },
-    { id: "2", name: "Uptown", image: "https://via.placeholder.com/80" },
-    { id: "3", name: "Suburb", image: "https://via.placeholder.com/80" },
-    { id: "4", name: "Midtown", image: "https://via.placeholder.com/80" },
+const Index: React.FC = () => {
+  const [selectedCity, setSelectedCity] = useState<string | null>("Kanpur");
+  const [cityModalVisible, setCityModalVisible] = useState(false);
+  const [localities, setLocalities] = useState<{ id: string, name: string, image: string }[]>([]);
+
+  useEffect(() => {
+    const cityLocalities = CityData[selectedCity] || [];
+    const localityData = cityLocalities.map((locality: { location: string, "PM2.5": number }, index: number) => ({
+      id: String(index + 1),
+      name: locality.location,
+      image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+    }));
+    setLocalities(localityData); // Update the localities state
+  }, []);
+
+  // List of Indian cities
+  const cities = [
+    "Delhi",
+    "Mumbai",
+    "Kanpur",
+    "Bangalore",
+    "Chennai",
+    "Kolkata",
+    "Hyderabad",
+    "Ahmedabad",
+    "Pune",
+    "Jaipur",
+    "Lucknow",
   ];
+
+  // const localities = [
+  //   { id: "1", name: "Downtown", image: "https://via.placeholder.com/80" },
+  //   { id: "2", name: "Uptown", image: "https://via.placeholder.com/80" },
+  //   { id: "3", name: "Suburb", image: "https://via.placeholder.com/80" },
+  //   { id: "4", name: "Midtown", image: "https://via.placeholder.com/80" },
+  // ];
 
   const featured = [
     {
@@ -128,9 +159,22 @@ const Index: React.FC = () => {
     { id: "3", name: "Trending", image: "https://via.placeholder.com/120" },
   ];
 
-  // Handler for selecting a city
   const handleCitySelection = () => {
-    Alert.alert("Select City", "City selection feature will be implemented");
+    setCityModalVisible(true);
+  };
+
+  const handleCityPress = (city: string) => {
+    setSelectedCity(city);
+    setCityModalVisible(false);
+    //set locality array here on based on input city
+    const cityLocalities = CityData[city] || [];
+    const localityData = cityLocalities.map((locality: { location: string, "PM2.5": number }, index: number) => ({
+      id: String(index + 1),
+      name: locality.location,
+      image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+    }));
+    setLocalities(localityData); // Update the localities state
+    console.log
   };
 
   return (
@@ -145,6 +189,34 @@ const Index: React.FC = () => {
           {selectedCity ? `City: ${selectedCity}` : "Select your City"}
         </Text>
       </TouchableOpacity>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={cityModalVisible}
+        onRequestClose={() => setCityModalVisible(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Select a City</Text>
+            {cities.map((city) => (
+              <Pressable
+                key={city}
+                style={styles.cityItem}
+                onPress={() => handleCityPress(city)}
+              >
+                <Text style={styles.cityName}>{city}</Text>
+              </Pressable>
+            ))}
+            <Pressable
+              style={styles.closeButton}
+              onPress={() => setCityModalVisible(false)}
+            >
+              <Text style={styles.closeButtonText}>Close</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
 
       <Text style={styles.sectionTitle}>Localities</Text>
       <ScrollView
@@ -212,6 +284,45 @@ const styles = StyleSheet.create({
   citySelectorText: {
     fontSize: 16,
     color: "#ddd",
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    width: 300,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 20,
+    alignItems: "center",
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  cityItem: {
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    width: "100%",
+  },
+  cityName: {
+    fontSize: 16,
+    textAlign: "center",
+  },
+  closeButton: {
+    marginTop: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#8A2BE2",
+    borderRadius: 10,
+  },
+  closeButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
   sectionTitle: {
     color: "#888",

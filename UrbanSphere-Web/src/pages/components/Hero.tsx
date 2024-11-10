@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/logo.svg";
 import dashboardmobile from "../../../public/assets/8.webp";
 import dashboard from "../../../public/assets/2.jpg";
 import WatchDemoModal from "./WatchDemoModal"; 

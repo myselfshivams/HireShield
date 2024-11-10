@@ -13,15 +13,15 @@ export default function Document() {
         <meta property="og:url" content="https://urban-sphere.studex.tech" />
         <meta property="og:title" content="UrbanSphere | Finding the Best Locations for Real Estate" />
         <meta property="og:description" content="UrbanSphere ranks sub-districts based on key quality-of-life factors, empowering buyers to choose the best areas to live." />
-        <meta property="og:image" content="/logo.png" />
+        <meta property="og:image" content="/logo.svg" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://urban-sphere.studex.tech" />
         <meta property="twitter:title" content="UrbanSphere | Finding the Best Locations for Real Estate" />
         <meta property="twitter:description" content="Helping property buyers choose the best sub-districts based on quality-of-life metrics." />
-        <meta property="twitter:image" content="/logo.png" />
+        <meta property="twitter:image" content="/logo.svg" />
 
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/logo.svg" />
         <link rel="canonical" href="https://urban-sphere.studex.tech" />
       </Head>
       <body className="antialiased">
