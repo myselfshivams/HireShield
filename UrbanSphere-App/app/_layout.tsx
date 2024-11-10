@@ -11,9 +11,9 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="Login" options={{ headerShown: false }} />
         <Stack.Screen name="Tabs" options={{ headerShown: false }} />
+        <Stack.Screen name="CityStats" options={{ headerShown: false }} />
         <Stack.Screen name="Forgot" options={{ headerShown: false }} />
         <Stack.Screen name="Notification" options={{ headerShown: false }} />
-        <Stack.Screen name="CityStats" options={{ headerShown: false }} />
       </Stack>
     </Auth0Provider>
   );
