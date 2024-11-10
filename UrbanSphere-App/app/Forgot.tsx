@@ -40,9 +40,6 @@ const Forgot = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={[styles.circle, styles.topRightCircle]} />
-      <View style={[styles.circle, styles.bottomLeftCircle]} />
-
       <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
         <Ionicons name="arrow-back" size={24} color="#333" />
       </TouchableOpacity>
@@ -174,22 +171,5 @@ const styles = StyleSheet.create({
     color: "#000",
     fontSize: 16,
     fontWeight: "500",
-  },
-  circle: {
-    position: "absolute",
-    borderRadius: 100,
-    backgroundColor: "#A6F10F",
-  },
-  topRightCircle: {
-    width: 160,
-    height: 160,
-    top: -40,
-    right: -40,
-  },
-  bottomLeftCircle: {
-    width: 200,
-    height: 200,
-    bottom: -60,
-    left: -60,
   },
 });
