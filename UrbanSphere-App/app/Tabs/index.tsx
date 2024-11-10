@@ -94,7 +94,6 @@
 
 // export default Index;
 
-
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -109,23 +108,29 @@ import {
   Modal,
   Pressable,
 } from "react-native";
-
+import { useNavigation } from "expo-router";
 import CityData from "../../data/almighty.json";
 
 const Index: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<string | null>("Kanpur");
   const [cityModalVisible, setCityModalVisible] = useState(false);
-  const [localities, setLocalities] = useState<{ id: string, name: string, image: string }[]>([]);
+  const [localities, setLocalities] = useState<
+    { id: string; name: string; image: string }[]
+  >([]);
 
   useEffect(() => {
     const cityLocalities = CityData[selectedCity] || [];
-    const localityData = cityLocalities.map((locality: { location: string, "PM2.5": number }, index: number) => ({
-      id: String(index + 1),
-      name: locality.location,
-      image: "https://via.placeholder.com/80", // You can replace this with actual images if available
-    }));
+    const localityData = cityLocalities.map(
+      (locality: { location: string; "PM2.5": number }, index: number) => ({
+        id: String(index + 1),
+        name: locality.location,
+        image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+      })
+    );
     setLocalities(localityData); // Update the localities state
   }, []);
+
+  const navigation = useNavigation();
 
   // List of Indian cities
   const cities = [
@@ -168,13 +173,15 @@ const Index: React.FC = () => {
     setCityModalVisible(false);
     //set locality array here on based on input city
     const cityLocalities = CityData[city] || [];
-    const localityData = cityLocalities.map((locality: { location: string, "PM2.5": number }, index: number) => ({
-      id: String(index + 1),
-      name: locality.location,
-      image: "https://via.placeholder.com/80", // You can replace this with actual images if available
-    }));
+    const localityData = cityLocalities.map(
+      (locality: { location: string; "PM2.5": number }, index: number) => ({
+        id: String(index + 1),
+        name: locality.location,
+        image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+      })
+    );
     setLocalities(localityData); // Update the localities state
-    console.log
+    console.log;
   };
 
   return (
@@ -225,13 +232,19 @@ const Index: React.FC = () => {
         style={styles.localityScroll}
       >
         {localities.map((locality) => (
-          <View key={locality.id} style={styles.localityItem}>
+          <TouchableOpacity
+            key={locality.id}
+            style={styles.localityItem}
+            onPress={() =>
+              navigation.navigate("CityStats", { localityName: locality.name })
+            }
+          >
             <Image
               source={{ uri: locality.image }}
               style={styles.localityImage}
             />
             <Text style={styles.localityName}>{locality.name}</Text>
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
 
