@@ -28,6 +28,13 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "react-native-auth0",
+        {
+          "domain": "dev-88np1j27r1x01hts.us.auth0.com",
+          "clientId": "fqWjT4nR14voB4zhP41xpziKDScloxgV"
+        }
+      ],
       "expo-router"
     ],
     "experiments": {
