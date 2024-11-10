@@ -95,7 +95,7 @@
 // export default Index;
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -110,9 +110,22 @@ import {
   Pressable,
 } from "react-native";
 
+import CityData from "../../data/almighty.json";
+
 const Index: React.FC = () => {
-  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string | null>("Kanpur");
   const [cityModalVisible, setCityModalVisible] = useState(false);
+  const [localities, setLocalities] = useState<{ id: string, name: string, image: string }[]>([]);
+
+  useEffect(() => {
+    const cityLocalities = CityData[selectedCity] || [];
+    const localityData = cityLocalities.map((locality: { location: string, "PM2.5": number }, index: number) => ({
+      id: String(index + 1),
+      name: locality.location,
+      image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+    }));
+    setLocalities(localityData); // Update the localities state
+  }, []);
 
   // List of Indian cities
   const cities = [
@@ -129,12 +142,12 @@ const Index: React.FC = () => {
     "Lucknow",
   ];
 
-  const localities = [
-    { id: "1", name: "Downtown", image: "https://via.placeholder.com/80" },
-    { id: "2", name: "Uptown", image: "https://via.placeholder.com/80" },
-    { id: "3", name: "Suburb", image: "https://via.placeholder.com/80" },
-    { id: "4", name: "Midtown", image: "https://via.placeholder.com/80" },
-  ];
+  // const localities = [
+  //   { id: "1", name: "Downtown", image: "https://via.placeholder.com/80" },
+  //   { id: "2", name: "Uptown", image: "https://via.placeholder.com/80" },
+  //   { id: "3", name: "Suburb", image: "https://via.placeholder.com/80" },
+  //   { id: "4", name: "Midtown", image: "https://via.placeholder.com/80" },
+  // ];
 
   const featured = [
     {
@@ -153,6 +166,15 @@ const Index: React.FC = () => {
   const handleCityPress = (city: string) => {
     setSelectedCity(city);
     setCityModalVisible(false);
+    //set locality array here on based on input city
+    const cityLocalities = CityData[city] || [];
+    const localityData = cityLocalities.map((locality: { location: string, "PM2.5": number }, index: number) => ({
+      id: String(index + 1),
+      name: locality.location,
+      image: "https://via.placeholder.com/80", // You can replace this with actual images if available
+    }));
+    setLocalities(localityData); // Update the localities state
+    console.log
   };
 
   return (
