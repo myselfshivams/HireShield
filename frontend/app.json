@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "urbansphere-frontend",
+    "slug": "urbansphere-frontend",
+    "version": "0.1.0",
+    "sdkVersion": "51.0.0",
+    "platforms": [],
+    "android": {
+      "package": "com.anonymous.urbanspherefrontend"
+    }
+  }
+}

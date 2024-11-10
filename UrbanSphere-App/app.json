@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#1D1B20"
-      }
+      },
+      "package": "com.anonymous.UrbanSphere"
     },
     "web": {
       "bundler": "metro",
