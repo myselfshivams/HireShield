@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  Button,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
+import { useAuth0 } from "react-native-auth0";
 
 type RootStackParamList = {
   Home: undefined;
@@ -26,76 +28,90 @@ type LoginScreenNavigationProp = StackNavigationProp<
 
 const LoginScreen = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [showPassword, setShowPassword] = useState(false);
+  const { authorize } = useAuth0();
 
-  const handleLogin = () => {
-    if (phoneNumber && password) {
-      navigation.navigate("Tabs");
-    } else {
-      Alert.alert("Error", "Please enter both phone number and password.");
+  const handleAuth0Login = async () => {
+    try {
+      console.log("Logging in with Auth0");
+      await authorize();
+      navigation.navigate("Tabs"); // Navigate on successful login
+    } catch (error) {
+      console.log("Login error", error);
+      Alert.alert("Login Error", "Could not authenticate. Please try again.");
     }
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>
-        Sign <Text style={styles.titleHighlight}>In</Text>
-      </Text>
-
-      <View style={styles.inputContainer}>
-        <Ionicons
-          name="call-outline"
-          size={20}
-          color="#888"
-          style={styles.icon}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="+91"
-          placeholderTextColor="#666"
-          onChangeText={setPhoneNumber}
-          keyboardType="phone-pad"
-        />
-      </View>
-
-      <View style={styles.inputContainer}>
-        <Ionicons
-          name="lock-closed-outline"
-          size={20}
-          color="#888"
-          style={styles.icon}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Your Password"
-          placeholderTextColor="#666"
-          secureTextEntry={!showPassword}
-          onChangeText={setPassword}
-          value={password}
-        />
-        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Ionicons
-            name={showPassword ? "eye-outline" : "eye-off-outline"}
-            size={20}
-            color="#888"
-          />
-        </TouchableOpacity>
-      </View>
-
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <Text style={styles.loginButtonText}>Login</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
-        <Text style={styles.forgotText}>
-          Don’t remember your password?{" "}
-          <Text style={styles.forgotLink}>Forget Password</Text>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.title}>
+          Sign <Text style={styles.titleHighlight}>In</Text>
         </Text>
-      </TouchableOpacity>
-    </SafeAreaView>
-  );
+        <Button onPress={handleAuth0Login} title="Log in" />
+        </SafeAreaView>
+    )
+
+
+  // return (
+  //   <SafeAreaView style={styles.container}>
+  //     <Text style={styles.title}>
+  //       Sign <Text style={styles.titleHighlight}>In</Text>
+  //     </Text>
+
+  //     <View style={styles.inputContainer}>
+  //       <Ionicons
+  //         name="call-outline"
+  //         size={20}
+  //         color="#888"
+  //         style={styles.icon}
+  //       />
+  //       <TextInput
+  //         style={styles.input}
+  //         placeholder="+91"
+  //         placeholderTextColor="#666"
+  //         onChangeText={setPhoneNumber}
+  //         keyboardType="phone-pad"
+  //       />
+  //     </View>
+
+  //     <View style={styles.inputContainer}>
+  //       <Ionicons
+  //         name="lock-closed-outline"
+  //         size={20}
+  //         color="#888"
+  //         style={styles.icon}
+  //       />
+  //       <TextInput
+  //         style={styles.input}
+  //         placeholder="Your Password"
+  //         placeholderTextColor="#666"
+  //         secureTextEntry={!showPassword}
+  //         onChangeText={setPassword}
+  //         value={password}
+  //       />
+  //       <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+  //         <Ionicons
+  //           name={showPassword ? "eye-outline" : "eye-off-outline"}
+  //           size={20}
+  //           color="#888"
+  //         />
+  //       </TouchableOpacity>
+  //     </View>
+
+  //     <TouchableOpacity style={styles.loginButton} onPress={handleAuth0Login}>
+  //       <Text style={styles.loginButtonText}>Login with Auth0</Text>
+  //     </TouchableOpacity>
+
+  //     <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
+  //       <Text style={styles.forgotText}>
+  //         Don’t remember your password?{" "}
+  //         <Text style={styles.forgotLink}>Forget Password</Text>
+  //       </Text>
+  //     </TouchableOpacity>
+  //   </SafeAreaView>
+  // );
 };
 
 export default LoginScreen;
@@ -156,10 +172,5 @@ const styles = StyleSheet.create({
   forgotLink: {
     color: "#8A2BE2",
     fontWeight: "500",
-  },
-  circle: {
-    position: "absolute",
-    borderRadius: 100,
-    backgroundColor: "#8A2BE2",
   },
 });

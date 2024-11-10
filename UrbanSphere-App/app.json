@@ -2,10 +2,10 @@
   "expo": {
     "name": "UrbanSphere",
     "slug": "UrbanSphere",
+    "scheme": "com.anonymous.UrbanSphere.auth0",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -20,7 +20,28 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#1D1B20"
       },
-      "package": "com.anonymous.UrbanSphere"
+      "package": "com.anonymous.UrbanSphere",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "com.anonymous.urbansphere.auth0",
+              "host": "dev-88np1j27r1x01hts.us.auth0.com",
+              "pathPrefix": "/android/com.anonymous.urbansphere/callback"
+            },
+            {
+              "scheme": "com.anonymous.urbansphere.auth0",
+              "host": "",
+              "pathPrefix": "/android/com.anonymous.urbansphere/callback"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -39,6 +60,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "7c510a14-ab0d-4c30-8e01-10c2e7ccdacd"
+      }
     }
   }
 }
