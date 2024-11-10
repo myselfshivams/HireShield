@@ -4,12 +4,12 @@
 UrbanSphere is a powerful tool designed to assist potential buyers and residents by evaluating and ranking sub-districts of cities. It uses diverse parameters such as air quality, water quality, crime rate, and proximity to essential facilities to highlight the best areas for your needs.
 
 ### Key Features:
-🌫️ Air Quality Index Analysis – Tracks and displays air quality levels in different areas.
-💧 Water Quality Index – Rates water quality for health and convenience.
-🛡️ Crime Rate – Shows crime statistics to promote safer neighborhood choices.
-🏥 Access to Amenities – Details nearby schools, hospitals, parks, and markets.
-🛒 Utilities Availability – Indicates easy access to groceries and other essentials.
-🏆 Ranking System – Scores sub-districts to recommend the best area for living based on your needs.
+- 🌫️ Air Quality Index Analysis – Tracks and displays air quality levels in different areas.
+- 💧 Water Quality Index – Rates water quality for health and convenience.
+- 🛡️ Crime Rate – Shows crime statistics to promote safer neighborhood choices.
+- 🏥 Access to Amenities – Details nearby schools, hospitals, parks, and markets.
+- 🛒 Utilities Availability – Indicates easy access to groceries and other essentials.
+- 🏆 Ranking System – Scores sub-districts to recommend the best area for living based on your needs.
 
 
 ### Project Structure 🏗️
@@ -25,7 +25,7 @@ UrbanSphere is a powerful tool designed to assist potential buyers and residents
 
 ## Frontend Setup (Next.js + TypeScript) ⚡
 
-To run the frontend, follow these steps:
+To run the UrbanSphere-Web, follow these steps:
 
 1. Navigate to the `frontend` directory:
 
@@ -41,31 +41,9 @@ To run the frontend, follow these steps:
    ```bash
    npm run dev
    ```
-4. The frontend will be running at http://localhost:3000
+4. The UrbanSphere-Web will be running at http://localhost:3000
 
 
-  
-## Backend Setup (Next.js + MongoDB) 🖥️
-
-To run the backend, follow these steps:
-
-1. Navigate to the backend directory:
-
-```bash
-cd backend
-```
-2. Install the necessary dependencies:
-
-```bash
-npm install
-```
-3. Start the backend server:
-
-```bash
-npm run dev
-```
-
-4. The backend will be running at http://localhost:3000.
 
 <hr>
 
