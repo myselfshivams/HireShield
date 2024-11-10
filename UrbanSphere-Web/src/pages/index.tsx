@@ -16,7 +16,7 @@ export default function Home() {
         <meta property="og:image" content="/path_to_your_image.jpg" />
         <meta property="og:url" content="https://urban-sphere.studex.tech" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/logo.svg" />
       </Head>
       <Hero />
       <Pricing />

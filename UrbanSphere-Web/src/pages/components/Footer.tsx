@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/logo.svg";
 import React, { useState, useEffect } from "react";
 import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { FaXTwitter, FaGithub, FaYoutube } from "react-icons/fa6";
