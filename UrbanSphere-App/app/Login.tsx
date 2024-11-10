@@ -46,21 +46,17 @@ const LoginScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-    <Text style={styles.title}>
-      Sign <Text style={styles.titleHighlight}>In</Text>
-    </Text>
+      <Text style={styles.title}>
+        Sign <Text style={styles.titleHighlight}>In</Text>
+      </Text>
 
-    <TouchableOpacity 
-      style={styles.loginButton} 
-      onPress={handleAuth0Login}
-    >
-      <Text style={styles.loginButtonText}>Login</Text>
-    </TouchableOpacity>
+      <TouchableOpacity style={styles.loginButton} onPress={handleAuth0Login}>
+        <Text style={styles.loginButtonText}>Login</Text>
+      </TouchableOpacity>
 
-    <Text style={styles.auth0Label}>Secured with Auth0</Text>
-  </SafeAreaView>
-    )
-
+      <Text style={styles.auth0Label}>Secured with Auth0</Text>
+    </SafeAreaView>
+  );
 
   // return (
   //   <SafeAreaView style={styles.container}>
@@ -142,7 +138,7 @@ const styles = StyleSheet.create({
     color: "#8A2BE2",
   },
   loginButton: {
-    width: "60%",
+    width: "70%",
     alignSelf: "center",
     backgroundColor: "#8A2BE2",
     borderRadius: 12,
@@ -151,7 +147,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   loginButtonText: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#fff",
     textAlign: "center",
   },
@@ -160,7 +156,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#fff",
     fontSize: 14,
-    marginTop: 10,
     opacity: 0.7,
   },
 });
