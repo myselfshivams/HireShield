@@ -40,11 +40,8 @@ const Forgot = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={[styles.circle, styles.topRightCircle]} />
-      <View style={[styles.circle, styles.bottomLeftCircle]} />
-
       <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
-        <Ionicons name="arrow-back" size={24} color="#333" />
+        <Ionicons name="arrow-back" size={24} color="#fff" />
       </TouchableOpacity>
 
       <Text style={styles.title}>
@@ -55,11 +52,12 @@ const Forgot = () => {
         <Ionicons
           name="call-outline"
           size={20}
-          color="#000"
+          color="#888"
           style={styles.icon}
         />
         <TextInput
           style={styles.input}
+          placeholderTextColor={"#888"}
           placeholder="+91"
           keyboardType="phone-pad"
           onChangeText={setPhoneNumber}
@@ -71,11 +69,12 @@ const Forgot = () => {
         <Ionicons
           name="lock-closed-outline"
           size={20}
-          color="#000"
+          color="#888"
           style={styles.icon}
         />
         <TextInput
           style={styles.input}
+          placeholderTextColor={"#888"}
           placeholder="Your Current Password"
           secureTextEntry={!showCurrentPassword}
           onChangeText={setCurrentPassword}
@@ -87,7 +86,7 @@ const Forgot = () => {
           <Ionicons
             name={showCurrentPassword ? "eye-outline" : "eye-off-outline"}
             size={20}
-            color="#000"
+            color="#888"
           />
         </TouchableOpacity>
       </View>
@@ -96,11 +95,12 @@ const Forgot = () => {
         <Ionicons
           name="lock-closed-outline"
           size={20}
-          color="#000"
+          color="#888"
           style={styles.icon}
         />
         <TextInput
           style={styles.input}
+          placeholderTextColor={"#888"}
           placeholder="Your New Password"
           secureTextEntry={!showNewPassword}
           onChangeText={setNewPassword}
@@ -110,7 +110,7 @@ const Forgot = () => {
           <Ionicons
             name={showNewPassword ? "eye-outline" : "eye-off-outline"}
             size={20}
-            color="#000"
+            color="#888"
           />
         </TouchableOpacity>
       </View>
@@ -128,18 +128,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#1D1B20",
     justifyContent: "center",
   },
   title: {
-    fontSize: 42,
-    fontWeight: "bold",
+    fontSize: 36,
+    fontWeight: "700",
     textAlign: "center",
-    color: "#333",
+    color: "#fff",
     marginBottom: 30,
   },
   titleHighlight: {
-    color: "#A6F10F",
+    color: "#9041FF",
   },
   backButton: {
     position: "absolute",
@@ -147,13 +147,14 @@ const styles = StyleSheet.create({
     left: 20,
   },
   inputContainer: {
+    color: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f1f1f1",
-    borderRadius: 10,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
+    backgroundColor: "#333",
+    borderRadius: 12,
     marginBottom: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
   },
   icon: {
     marginRight: 8,
@@ -164,32 +165,14 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   continueButton: {
-    backgroundColor: "#A6F10F",
+    backgroundColor: "#8A2BE2",
     paddingVertical: 14,
     borderRadius: 8,
     alignItems: "center",
     marginTop: 20,
   },
   continueButtonText: {
-    color: "#000",
+    color: "#fff",
     fontSize: 16,
-    fontWeight: "500",
-  },
-  circle: {
-    position: "absolute",
-    borderRadius: 100,
-    backgroundColor: "#A6F10F",
-  },
-  topRightCircle: {
-    width: 160,
-    height: 160,
-    top: -40,
-    right: -40,
-  },
-  bottomLeftCircle: {
-    width: 200,
-    height: 200,
-    bottom: -60,
-    left: -60,
   },
 });

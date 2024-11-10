@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 20,
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 10,
   },
   icon: {
     marginRight: 8,
