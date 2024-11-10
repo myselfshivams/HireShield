@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { FaBriefcase, FaUser } from "react-icons/fa";
 import BusinessInquiryModal from "./BusinessFormModal"; 
-import UserFormModal from "./UserFormModal"; 
+import { useRouter } from "next/router";
 
 interface GetStartedModalProps {
   isOpen: boolean;
@@ -12,7 +12,8 @@ interface GetStartedModalProps {
 const GetStartedModal: React.FC<GetStartedModalProps> = ({ isOpen, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isBusinessModalOpen, setIsBusinessModalOpen] = useState(false);
-  const [isUserModalOpen, setIsUserModalOpen] = useState(false); 
+
+  const router = useRouter();
 
   useEffect(() => {
     const originalOverflow = document.body.style.overflow;
@@ -29,7 +30,11 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({ isOpen, onClose }) =>
   };
 
   const handleUserClick = () => {
-    setIsUserModalOpen(true); 
+    router.push(
+      {
+        pathname: "/search",
+      },
+    );
   };
 
   if (!isOpen) return null;
@@ -84,7 +89,6 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({ isOpen, onClose }) =>
       </div>
 
       <BusinessInquiryModal isOpen={isBusinessModalOpen} onClose={() => setIsBusinessModalOpen(false)} />
-      <UserFormModal isOpen={isUserModalOpen} onClose={() => setIsUserModalOpen(false)} /> {/* Add UserFormModal */}
     </>,
     document.body
   );
