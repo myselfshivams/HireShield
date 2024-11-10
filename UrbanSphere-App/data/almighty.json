@@ -10,10 +10,10 @@
         "crime_level": "Moderate",
         "hospitals": 3,
         "schools": 5,
-        "location": "Anand Lok",
         "markets": 3,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ1q2Sw--C6qCGcw6eL1GgukeITnJS4FkzrA&s"
       },
       {
         "location": "Anand Parbat",
@@ -27,7 +27,8 @@
         "schools": 4,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSazFos-_Mox1zdUd1IicQnDXZFTklzf3EIdw&s"
       },
       {
         "location": "Anand Vihar",
@@ -41,7 +42,8 @@
         "schools": 6,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":"https://media.gettyimages.com/id/1244454215/photo/commuters-drive-by-anand-vihar-on-a-smoggy-day-amid-deteriorating-air-quality-levels-the-air.jpg?s=612x612&w=gi&k=20&c=6ZWU-YHmIlipbyWKIBgDfwRgo-cE9_PTJkmdCwzPlac="
       },
       {
         "location": "Bali Nagar",
@@ -55,7 +57,8 @@
         "schools": 3,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":"https://mediacdn.99acres.com/media1/20628/9/412569438D-1678964420841.jpg"
       },
       {
         "location": "Bawana Industrial Area",
@@ -69,7 +72,8 @@
         "schools": 2,
         "markets": 1,
         "utility_rating": 2,
-        "utility_water": 2
+        "utility_water": 2,
+        "image_url":"https://img.staticmb.com/mbphoto/locality/cropped_images/2024/May/29/Photo_h600_w900/80790_Screenshot-2024-05-29-151452_600_900.jpg"
       },
       {
         "location": "Bhalswa Landfill",
@@ -83,7 +87,8 @@
         "schools": 1,
         "markets": 1,
         "utility_rating": 2,
-        "utility_water": 2
+        "utility_water": 2,
+        "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW-_IvuOLZMuHHataPnWmkDclb0Bjn02IxAg&s"
       },
       {
         "location": "Chanakya Puri",
@@ -97,7 +102,8 @@
         "schools": 7,
         "markets": 5,
         "utility_rating": 5,
-        "utility_water": 5
+        "utility_water": 5,
+        "image_url":"https://img.staticmb.com/mbphoto/locality/cropped_images/2024/Nov/5/Photo_h600_w900/53296_IMG_20240916_151740930---Himanshu-srivastava_600_900.jpg"
       },
       {
         "location": "Civil Lines",
@@ -111,7 +117,8 @@
         "schools": 6,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Connaught Place",
@@ -125,7 +132,8 @@
         "schools": 8,
         "markets": 5,
         "utility_rating": 5,
-        "utility_water": 5
+        "utility_water": 5,
+        "image_url":""
       },
       {
         "location": "Darya Ganj",
@@ -139,7 +147,8 @@
         "schools": 5,
         "markets": 3,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "Defence Colony",
@@ -153,7 +162,8 @@
         "schools": 6,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Delhi Cantt",
@@ -167,7 +177,8 @@
         "schools": 4,
         "markets": 3,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       }
     ],
     "Kanpur": [
@@ -183,7 +194,8 @@
         "schools": 3,
         "markets": 3,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "FTI Kidwai Nagar",
@@ -197,7 +209,8 @@
         "schools": 2,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "Gurdev Palace",
@@ -211,7 +224,8 @@
         "schools": 3,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "IITK",
@@ -225,7 +239,8 @@
         "schools": 5,
         "markets": 1,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Keshavpuram",
@@ -239,7 +254,8 @@
         "schools": 4,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "Nehru Nagar",
@@ -253,7 +269,8 @@
         "schools": 3,
         "markets": 3,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "NSI Kalyanpur",
@@ -267,7 +284,8 @@
         "schools": 2,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "Panki",
@@ -281,7 +299,8 @@
         "schools": 3,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "Panki 1",
@@ -295,7 +314,8 @@
         "schools": 3,
         "markets": 2,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       }
     ],
     "Mumbai": [
@@ -311,7 +331,8 @@
         "schools": 7,
         "markets": 5,
         "utility_rating": 5,
-        "utility_water": 5
+        "utility_water": 5,
+        "image_url":""
       },
       {
         "location": "Bandra East",
@@ -325,7 +346,8 @@
         "schools": 6,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Bandra West",
@@ -339,7 +361,8 @@
         "schools": 7,
         "markets": 5,
         "utility_rating": 5,
-        "utility_water": 5
+        "utility_water": 5,
+        "image_url":""
       },
       {
         "location": "Chembur",
@@ -353,7 +376,8 @@
         "schools": 5,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Andheri",
@@ -367,7 +391,8 @@
         "schools": 8,
         "markets": 5,
         "utility_rating": 5,
-        "utility_water": 5
+        "utility_water": 5,
+        "image_url":""
       },
       {
         "location": "Mulund",
@@ -381,7 +406,8 @@
         "schools": 6,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Dahisar",
@@ -395,7 +421,8 @@
         "schools": 5,
         "markets": 3,
         "utility_rating": 3,
-        "utility_water": 3
+        "utility_water": 3,
+        "image_url":""
       },
       {
         "location": "Malad",
@@ -409,7 +436,8 @@
         "schools": 6,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Borivali",
@@ -423,7 +451,8 @@
         "schools": 7,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       },
       {
         "location": "Goregaon",
@@ -437,7 +466,8 @@
         "schools": 6,
         "markets": 4,
         "utility_rating": 4,
-        "utility_water": 4
+        "utility_water": 4,
+        "image_url":""
       }
     ]
   }
