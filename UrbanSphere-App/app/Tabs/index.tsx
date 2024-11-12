@@ -50,31 +50,18 @@ const Index: React.FC = () => {
   const navigation = useNavigation();
 
   const cities = [
-    "Delhi",
-    "Mumbai",
-    "Kanpur",
-    "Bangalore",
-    "Chennai",
-    "Kolkata",
-    "Hyderabad",
-    "Ahmedabad",
-    "Pune",
-    "Jaipur",
-    "Lucknow",
+    "Delhi", "Mumbai", "Kanpur", "Bangalore", "Chennai",
+    "Kolkata", "Hyderabad", "Ahmedabad", "Pune", "Jaipur", "Lucknow",
   ];
 
   const featured = [
-    {
-      id: "1",
-      name: "Special Offer",
-      image: "https://via.placeholder.com/120",
-    },
+    { id: "1", name: "Special Offer", image: "https://via.placeholder.com/120" },
     { id: "2", name: "Top Pick", image: "https://via.placeholder.com/120" },
     { id: "3", name: "Trending", image: "https://via.placeholder.com/120" },
   ];
 
   const handleCitySelection = () => setCityModalVisible(true);
-
+  
   const handleCityPress = (city: string) => {
     setSelectedCity(city);
     setCityModalVisible(false);
@@ -144,9 +131,7 @@ const Index: React.FC = () => {
               key={locality.id}
               style={styles.localityItem}
               onPress={() =>
-                navigation.navigate("CityStats", {
-                  localityName: locality.name,
-                })
+                navigation.navigate("CityStats", { localityName: locality.name })
               }
             >
               <Image
@@ -168,10 +153,7 @@ const Index: React.FC = () => {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.featuredItem}>
-              <Image
-                source={{ uri: item.image }}
-                style={styles.featuredImage}
-              />
+              <Image source={{ uri: item.image }} style={styles.featuredImage} />
               <Text style={styles.featuredName}>{item.name}</Text>
             </View>
           )}
@@ -273,7 +255,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   section: {
-    marginBottom: 30,
+    marginBottom: 20,
   },
   sectionTitle: {
     color: "#888",
@@ -291,7 +273,7 @@ const styles = StyleSheet.create({
   localityImage: {
     width: 80,
     height: 80,
-    borderRadius: 80,
+    borderRadius: 10,
     marginBottom: 5,
   },
   localityName: {
